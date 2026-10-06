@@ -17,9 +17,9 @@ from fieldshift.api.product import (
     report_from_response,
     what_if,
 )
-from fieldshift.v3.pipeline import DEFAULT_WEIGHTS, run_v3
 from fieldshift.v3.appeears import credentials_configured as appeears_credentials_configured
 from fieldshift.v3.gee import gee_credentials_configured
+from fieldshift.v3.pipeline import DEFAULT_WEIGHTS, run_v3
 
 try:
     from fastapi import FastAPI, HTTPException
@@ -237,3 +237,4 @@ def analysis_report_from_client(run_id: str, payload: dict[str, Any]) -> dict[st
 @app.get("/", response_class=HTMLResponse)
 def index() -> str:
     return (APP_ROOT / "static" / "index.html").read_text(encoding="utf-8")
+
